@@ -7,10 +7,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[] input1 = new int[]{8,9,8,9,4};
+
+        int sizeMass = 0;
+        int[] massTest = new int[]{9,9,9,9};
+        System.out.print("Введите размер массива желательно не больше 9) - ");
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextInt())
+            sizeMass = scanner.nextInt();
+        int[] input1 = new int[sizeMass];
+        for (int i = 0; i < sizeMass; i++) {
+            int n = (int) (Math.random()*9+1);
+            input1[i] = n;
+        }
+
         System.out.println(Arrays.toString(input1));
         int[] output1 = addOne(input1);
-        System.out.println(Arrays.toString(output1));
         System.out.println("\n\nforward");
         forward(input1);
         System.out.println("\n\nminMax");
@@ -40,7 +51,7 @@ public class Main {
                 pow = (int) Math.pow(10,arr.length - (i+1));
             result += arr[i] * pow;
         }
-        System.out.println(result + "sdg");
+        System.out.println(result);
         int count = 0;
         for (int i = 0; i < resultArr.length; i++) {
             if(i == 0) {
@@ -74,8 +85,10 @@ public class Main {
                 truth = false;
             }
         }
+        if (newArr.length > 1){
+            System.out.println(Arrays.toString(newArr));
+        }
         System.out.println(Arrays.toString(resultArr));
-        System.out.println(Arrays.toString(newArr));
 
 
         return newArr;
